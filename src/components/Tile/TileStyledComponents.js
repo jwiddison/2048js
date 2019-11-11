@@ -26,6 +26,7 @@ export const Number = styled.span`
 export const TileBackground = styled.div`
   align-items: center;
   background-color: ${props => colors[props.number]};
+  border-radius: 1px;
   display: flex;
   height: 100px;
   justify-content: center;

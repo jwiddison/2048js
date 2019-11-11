@@ -15,9 +15,12 @@ export const Background = styled.div`
 export const GridCell = styled.div`
   background-color: ${BACKGROUND_COLOR};
   height: 100px;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin: 0 20px 20px 0;
   width: 100px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 `;
 
 export const GridRow = styled.div`
