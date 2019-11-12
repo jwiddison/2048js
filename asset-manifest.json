@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/jwiddison/2048js/static/css/main.0a67f3bb.chunk.css",
+    "main.js": "/jwiddison/2048js/static/js/main.19487749.chunk.js",
+    "main.js.map": "/jwiddison/2048js/static/js/main.19487749.chunk.js.map",
+    "runtime-main.js": "/jwiddison/2048js/static/js/runtime-main.05c42667.js",
+    "runtime-main.js.map": "/jwiddison/2048js/static/js/runtime-main.05c42667.js.map",
+    "static/js/2.b712317e.chunk.js": "/jwiddison/2048js/static/js/2.b712317e.chunk.js",
+    "static/js/2.b712317e.chunk.js.map": "/jwiddison/2048js/static/js/2.b712317e.chunk.js.map",
+    "index.html": "/jwiddison/2048js/index.html",
+    "precache-manifest.088efa3c00be778c27fc2729e2ae83d1.js": "/jwiddison/2048js/precache-manifest.088efa3c00be778c27fc2729e2ae83d1.js",
+    "service-worker.js": "/jwiddison/2048js/service-worker.js",
+    "static/css/main.0a67f3bb.chunk.css.map": "/jwiddison/2048js/static/css/main.0a67f3bb.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.05c42667.js",
+    "static/js/2.b712317e.chunk.js",
+    "static/css/main.0a67f3bb.chunk.css",
+    "static/js/main.19487749.chunk.js"
+  ]
+}
