@@ -14,22 +14,51 @@ const colors = {
   256: "#e7cd73",
   512: "#ecd163",
   1024: "#dcbb43",
-  2048: "#e5c542"
+  2048: "#e5c542",
+  fallback: "#85d698"
 };
 
+const calcTileBackground = number =>
+  number > 2048 ? colors["fallback"] : colors[number];
+
 export const Number = styled.span`
-  color: ${props =>
-    props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
   font-size: 32px;
 `;
 
 export const TileBackground = styled.div`
   align-items: center;
-  background-color: ${props => colors[props.number]};
+  background-color: ${props => calcTileBackground(props.number)};
+  color: ${props =>
+    props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
   border-radius: 1px;
   display: flex;
   height: 100px;
   justify-content: center;
   margin: 0 20px 20px 0;
+  position: absolute;
   width: 100px;
+
+  @keyframes appear {
+    0% {
+      height: 80px;
+      width: 80px;
+    }
+    25% {
+      height: 85px;
+      width: 85px;
+    }
+    50% {
+      height: 90px;
+      width: 90px;
+    }
+    100% {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  animation-name: appear;
+  animation-duration: 0.3s;
+
+  transition: margin 0.3s ease;
 `;
