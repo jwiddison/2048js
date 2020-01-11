@@ -19,7 +19,7 @@ const Tile = () => {
 
   return (
     <TileBackground
-      style={{ marginTop: calcOffset(y), marginLeft: calcOffset(x) }}
+      style={{ top: calcOffset(y), left: calcOffset(x) }}
       number={number}
     >
       <Number>{number}</Number>

@@ -28,26 +28,30 @@ export const Number = styled.span`
 export const TileBackground = styled.div`
   align-items: center;
   background-color: ${props => calcTileBackground(props.number)};
-  color: ${props =>
-    props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
+  color: ${props => props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
   border-radius: 1px;
   display: flex;
   height: 100px;
   justify-content: center;
-  margin: 0 20px 20px 0;
   position: absolute;
   width: 100px;
 
   @keyframes appear {
     0% {
+      margin-top: 10px;
+      margin-left: 10px;
       height: 80px;
       width: 80px;
     }
     25% {
+      margin-top: 7.5px;
+      margin-left: 7.5px;
       height: 85px;
       width: 85px;
     }
     50% {
+      margin-top: 5px;
+      margin-left: 5px;
       height: 90px;
       width: 90px;
     }
