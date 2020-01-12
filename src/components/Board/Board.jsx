@@ -31,8 +31,16 @@ class Board extends React.Component {
 
     const key = e.keycode ? e.keycode : e.which;
 
-    let sortedTiles;
+    // let sortedTiles;
     let shiftedTiles;
+
+    // TODO:
+    // Prevent tiles from overlapping when moving
+    // - Sort the tiles depending on which direction you're trying to move
+    // - Maybe group by x if you're moving y and vice versa first, then sort
+    // - Don't move into a space already occupied
+    // Handle logic of combining & "leveling up" tiles
+    // Keep score
 
     switch (key) {
       case 37: // LEFT
