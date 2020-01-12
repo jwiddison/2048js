@@ -28,8 +28,9 @@ export const Number = styled.span`
 export const TileBackground = styled.div`
   align-items: center;
   background-color: ${props => calcTileBackground(props.number)};
-  color: ${props => props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
   border-radius: 1px;
+  color: ${props =>
+    props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
   display: flex;
   height: 100px;
   justify-content: center;
@@ -64,5 +65,6 @@ export const TileBackground = styled.div`
   animation-name: appear;
   animation-duration: 0.3s;
 
-  transition: margin 0.3s ease;
+  transition: left 0.3s ease;
+  transition: top 0.3s ease;
 `;

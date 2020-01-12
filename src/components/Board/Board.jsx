@@ -1,7 +1,6 @@
 import React from "react";
-import Tile from "../Tile";
+import Tile from "../Tile/Tile";
 import { Background, GridCell, GridRow } from "./BoardStyledComponents";
-import { generateNewTilePosition, generateTileInitialValue } from "../../util";
 
 class Board extends React.Component {
   state = {
@@ -46,13 +45,19 @@ class Board extends React.Component {
     }
   };
 
+  generateNewTileData = () => ({
+    value: Math.floor(Math.random() * 10) > 7 ? 4 : 2,
+    x: Math.floor(Math.random() * 4),
+    y: Math.floor(Math.random() * 4)
+  });
+
   spawnNewTile = () => {
     let { tiles } = this.state;
-    let stillNeeded = true;
     let newTiles;
+    let stillNeeded = true;
+
     while (stillNeeded) {
-      const newTile = generateNewTilePosition();
-      newTile.value = generateTileInitialValue();
+      const newTile = this.generateNewTileData();
 
       const included = tiles.reduce((acc, tile) => {
         if (acc) return acc;

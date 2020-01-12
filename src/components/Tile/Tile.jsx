@@ -14,9 +14,9 @@ const Tile = ({ value, x, y }) => (
 );
 
 Tile.propTypes = {
-  value: propTypes.number,
-  x: propTypes.number,
-  y: propTypes.number
+  value: propTypes.number.isRequired,
+  x: propTypes.number.isRequired,
+  y: propTypes.number.isRequired
 };
 
 export default Tile;
