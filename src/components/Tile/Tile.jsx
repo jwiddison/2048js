@@ -1,30 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import propTypes from "prop-types";
 import { Number, TileBackground } from "./TileStyledComponents";
 
-const calcInitialNumber = () => {
-  const odds = Math.floor(Math.random() * 10);
-  return odds > 7 ? 4 : 2;
-};
+const calcOffset = value => value * 120;
 
-const Tile = () => {
-  const [number, setNumber] = useState(calcInitialNumber());
-  const [x, setX] = useState(Math.floor(Math.random() * 4));
-  const [y, setY] = useState(Math.floor(Math.random() * 4));
+const Tile = ({ value, x, y }) => (
+  <TileBackground
+    number={value}
+    style={{ top: calcOffset(y), left: calcOffset(x) }}
+  >
+    <Number>{value}</Number>
+  </TileBackground>
+);
 
-  const levelUp = () => {
-    setNumber(number * 2);
-  };
-
-  const calcOffset = value => value * 120;
-
-  return (
-    <TileBackground
-      style={{ top: calcOffset(y), left: calcOffset(x) }}
-      number={number}
-    >
-      <Number>{number}</Number>
-    </TileBackground>
-  );
+Tile.propTypes = {
+  value: propTypes.number,
+  x: propTypes.number,
+  y: propTypes.number
 };
 
 export default Tile;
