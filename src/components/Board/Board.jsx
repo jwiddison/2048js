@@ -20,27 +20,25 @@ class Board extends React.Component {
 
   handleMove = e => {
     const { tiles } = this.state;
+
     if (tiles.length === 16) {
       alert("GAME OVER");
       return;
     }
 
-    const key = e.keyCode ? e.keyCode : e.which;
+    const key = e.keycode ? e.keycode : e.which;
+
     switch (key) {
-      case 37:
-        // LEFT
+      case 37: // LEFT
         this.spawnNewTile();
         break;
-      case 38:
-        // UP
+      case 38: // UP
         this.spawnNewTile();
         break;
-      case 39:
-        // RIGHT
+      case 39: // RIGHT
         this.spawnNewTile();
         break;
-      case 40:
-        // DOWN
+      case 40: // DOWN
         this.spawnNewTile();
         break;
       default:
