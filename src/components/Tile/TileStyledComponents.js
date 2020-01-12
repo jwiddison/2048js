@@ -69,6 +69,5 @@ export const TileBackground = styled.div`
   animation-name: appear;
   animation-duration: 0.3s;
 
-  transition: left 0.3s ease;
-  transition: top 0.3s ease;
+  transition: top 0.25s ease, left 0.25s ease;
 `;
