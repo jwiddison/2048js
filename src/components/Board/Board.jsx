@@ -3,9 +3,13 @@ import Tile from "../Tile/Tile";
 import { Background, GridCell, GridRow } from "./BoardStyledComponents";
 
 class Board extends React.Component {
-  state = {
-    tiles: []
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tiles: []
+    };
+  }
 
   componentDidMount() {
     this.spawnNewTile();
@@ -18,7 +22,7 @@ class Board extends React.Component {
   }
 
   handleMove = e => {
-    const { tiles } = this.state;
+    const { tiles = [] } = this.state;
 
     if (tiles.length === 16) {
       alert("GAME OVER");
@@ -27,22 +31,41 @@ class Board extends React.Component {
 
     const key = e.keycode ? e.keycode : e.which;
 
+    let sortedTiles;
+    let shiftedTiles;
+
     switch (key) {
       case 37: // LEFT
-        this.spawnNewTile();
+        shiftedTiles = tiles.map(tile => {
+          const x = tile.x - 1 < 1 ? 0 : tile.x - 1;
+          return { ...tile, x };
+        });
         break;
       case 38: // UP
-        this.spawnNewTile();
+        shiftedTiles = tiles.map(tile => {
+          const y = tile.y - 1 < 1 ? 0 : tile.y - 1;
+          return { ...tile, y };
+        });
         break;
       case 39: // RIGHT
-        this.spawnNewTile();
+        shiftedTiles = tiles.map(tile => {
+          const x = tile.x + 1 > 2 ? 3 : tile.x + 1;
+          return { ...tile, x };
+        });
         break;
       case 40: // DOWN
-        this.spawnNewTile();
+        shiftedTiles = tiles.map(tile => {
+          const y = tile.y + 1 > 2 ? 3 : tile.y + 1;
+          return { ...tile, y };
+        });
         break;
       default:
         break;
     }
+    this.setState({
+      tiles: shiftedTiles
+    });
+    this.spawnNewTile();
   };
 
   generateNewTileData = () => ({
@@ -52,7 +75,7 @@ class Board extends React.Component {
   });
 
   spawnNewTile = () => {
-    let { tiles } = this.state;
+    let { tiles = [] } = this.state;
     let newTiles;
     let stillNeeded = true;
 
@@ -81,7 +104,7 @@ class Board extends React.Component {
   };
 
   render() {
-    const { tiles } = this.state;
+    const { tiles = [] } = this.state;
     const indeces = [0, 1, 2, 3];
 
     return (

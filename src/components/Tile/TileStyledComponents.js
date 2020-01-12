@@ -21,20 +21,24 @@ const colors = {
 const calcTileBackground = number =>
   number > 2048 ? colors["fallback"] : colors[number];
 
+const calcOffset = value => value * 120;
+
 export const Number = styled.span`
   font-size: 32px;
 `;
 
 export const TileBackground = styled.div`
   align-items: center;
-  background-color: ${props => calcTileBackground(props.number)};
+  background-color: ${props => calcTileBackground(props.value)};
   border-radius: 1px;
   color: ${props =>
-    props.number > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
+    props.value > 4 ? HIGH_NUMBERS_TEXT_COLOR : LOW_NUMBERS_TEXT_COLOR};
   display: flex;
   height: 100px;
   justify-content: center;
+  left: ${props => calcOffset(props.x)}px;
   position: absolute;
+  top: ${props => calcOffset(props.y)}px;
   width: 100px;
 
   @keyframes appear {
